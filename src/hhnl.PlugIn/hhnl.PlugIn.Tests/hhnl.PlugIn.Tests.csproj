@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <IsPackable>false</IsPackable>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="NUnit" Version="3.12.0" />
+        <PackageReference Include="NUnit3TestAdapter" Version="3.16.1" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\hhnl.PlugIn.Host\hhnl.PlugIn.Host.csproj" />
+      <ProjectReference Include="..\hhnl.PlugIn.Tests.TestPlugin\hhnl.PlugIn.Tests.TestPlugin.csproj" />
+      <ProjectReference Include="..\hhnl.PlugIn\hhnl.PlugIn.csproj" />
+    </ItemGroup>
+
+</Project>
