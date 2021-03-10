@@ -26,7 +26,7 @@ namespace hhnl.PlugIn
 
             if (!plugInHost.Exists)
                 throw new ArgumentException("Plugin host does not exist.");
-            
+
             var plugInDll = new FileInfo(plugInDllPath);
 
             if (!plugInDll.Exists)
@@ -44,7 +44,8 @@ namespace hhnl.PlugIn
                 {
                     new FileAccess(contractDll.DirectoryName!, FileAccess.Right.Read),
                     new FileAccess(plugInDll.DirectoryName!, FileAccess.Right.Read)
-                });
+                },
+                workingDirectory: plugInHost.DirectoryName!);
 
             return await PlugIn.CreateAsync(p);
         }
@@ -54,8 +55,11 @@ namespace hhnl.PlugIn
         {
             return new[]
             {
-                $"--{nameof(HostConfig.PlugInDllPath)} {plugInDllPath}",
-                $"--{nameof(HostConfig.ContractDllPath)} {contractDllPath}"
+                "",
+                $"--{nameof(HostConfig.ContractDllPath)}",
+                contractDllPath,
+                $"--{nameof(HostConfig.PlugInDllPath)}",
+                plugInDllPath,
             };
         }
 

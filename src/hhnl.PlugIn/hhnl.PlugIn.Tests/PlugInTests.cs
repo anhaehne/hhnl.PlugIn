@@ -9,7 +9,6 @@ namespace hhnl.PlugIn.Tests
         [Test]
         public async Task ShouldStartPluginAndReturnResult()
         {
-            
         }
     }
 }
